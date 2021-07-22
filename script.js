@@ -77,7 +77,7 @@ const getOptions = (selectedCurrency, rates) => {
 	currency === selectedCurrency ? 'selected' : ''
 	const getOptionsArray = currency => `<option ${setSelectedAttribute(currency)}>${currency}</option>`;
 
- 	return Object.keys(rates).map(getOptionsArray).join('');
+ 	return Object.keys(rates).map(getOptionsArray);
 }
 
 const getMultipliedExchangeRate = rates	=> {
@@ -99,6 +99,7 @@ const showInitialInfo = ({rates}) => {
 	
 	firstCurrencyEl.innerHTML = getOptions('USD', rates);
 	secondCurrencyEl.innerHTML = getOptions('BRL', rates);
+
 	showUpdatedRates({rates});
 
 } 
@@ -136,3 +137,7 @@ secondCurrencyEl.addEventListener('input', handleSecondCurrency);
 firstCurrencyEl.addEventListener('input', handleFirstCurrency);
 
 init()
+
+
+
+
